@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>People Database</h1>
+
+        <form id="personForm">
+            <input
+                type="text"
+                id="name"
+                placeholder="Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="surname"
+                placeholder="Surname"
+                required
+            >
+
+            <button type="submit">Save Person</button>
+        </form>
+
+        <h2>People in Database</h2>
+
+        <div id="peopleList"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
