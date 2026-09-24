@@ -2,42 +2,358 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People Database</title>
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta name="theme-color" content="#1a0b2e">
+
+    <title>Classora | Student Management Platform</title>
+
+    <link rel="stylesheet" href="style.css?v=classora5">
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- =========================
+         AUTHENTICATION SCREEN
+    ========================== -->
 
-        <h1>People Database</h1>
+    <main id="authScreen" class="auth-screen">
 
-        <form id="personForm">
-            <input
-                type="text"
-                id="name"
-                placeholder="Name"
-                required
-            >
+        <section class="auth-card">
 
-            <input
-                type="text"
-                id="surname"
-                placeholder="Surname"
-                required
-            >
+            <div class="brand">
+                <div class="brand-icon">C</div>
 
-            <button type="submit">Save Person</button>
-        </form>
+                <div>
+                    <h1>Classora</h1>
+                    <p>Student Management Platform</p>
+                </div>
+            </div>
 
-        <h2>People in Database</h2>
 
-        <div id="peopleList"></div>
+            <!-- LOGIN -->
+
+            <div id="loginView">
+
+                <div class="auth-heading">
+                    <h2>Welcome back</h2>
+                    <p>Sign in to continue to your dashboard.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="loginButton"
+                    >
+                        Sign In
+                    </button>
+
+                </form>
+
+                <div id="loginMessage" class="message"></div>
+
+                <p class="switch-auth">
+                    Don't have an account?
+                    <button type="button" id="showRegister">
+                        Create one
+                    </button>
+                </p>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div id="registerView" class="hidden">
+
+                <div class="auth-heading">
+                    <h2>Create account</h2>
+                    <p>Register as a student to get started.</p>
+                </div>
+
+                <form id="registerForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="registerName">First name</label>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="First name"
+                                autocomplete="given-name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerSurname">Surname</label>
+
+                            <input
+                                type="text"
+                                id="registerSurname"
+                                placeholder="Surname"
+                                autocomplete="family-name"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="registerButton"
+                    >
+                        Create Student Account
+                    </button>
+
+                </form>
+
+                <div id="registerMessage" class="message"></div>
+
+                <p class="switch-auth">
+                    Already have an account?
+                    <button type="button" id="showLogin">
+                        Sign in
+                    </button>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         APPLICATION
+    ========================== -->
+
+    <div id="app" class="app">
+
+        <!-- SIDEBAR -->
+
+        <aside id="sidebar" class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-icon">C</div>
+
+                <div>
+                    <strong>Classora</strong>
+                    <span>Education Platform</span>
+                </div>
+
+            </div>
+
+
+            <nav id="navigation" class="navigation">
+
+                <!-- Navigation buttons are generated by JavaScript -->
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <div class="user-mini">
+
+                    <div
+                        id="userAvatar"
+                        class="avatar"
+                    >
+                        U
+                    </div>
+
+                    <div class="user-mini-info">
+
+                        <strong id="sidebarUserName">
+                            User
+                        </strong>
+
+                        <span id="sidebarUserRole">
+                            Student
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    id="logoutButton"
+                    class="logout-button"
+                >
+                    Log out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <!-- MOBILE HEADER -->
+
+            <header class="mobile-header">
+
+                <div class="mobile-brand">
+
+                    <div class="brand-icon">C</div>
+
+                    <strong>Classora</strong>
+
+                </div>
+
+                <button
+                    id="mobileMenuButton"
+                    class="mobile-menu-button"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+            </header>
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+    <div class="topbar-heading">
+
+        <button
+            id="backToDashboardButton"
+            class="back-button"
+            type="button"
+            aria-label="Back to Dashboard"
+        >
+            ← Dashboard
+        </button>
+
+        <div>
+
+            <p id="pageEyebrow" class="page-eyebrow">
+                Dashboard
+            </p>
+
+            <h1 id="pageTitle">
+                Dashboard
+            </h1>
+
+        </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="topbar-user">
+
+        <div
+            id="topbarAvatar"
+            class="avatar"
+        >
+            U
+        </div>
+
+        <div>
+
+            <strong id="topbarUserName">
+                User
+            </strong>
+
+            <span id="topbarUserEmail">
+                user@example.com
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+            <!-- PAGE CONTENT -->
+
+            <section id="pageContent" class="page-content">
+
+                <div class="loading-card">
+                    <div class="spinner"></div>
+                    <p>Loading your dashboard...</p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="alert"
+    ></div>
+
+
+    <script src="script.js?v=classora5"></script>
 
 </body>
 </html>
