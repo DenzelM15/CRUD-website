@@ -267,22 +267,6 @@ Potential future improvements include:
 
 ---
 
-📸 Screenshots
-
-Screenshots of the Classora interface can be added here to showcase:
-
-- Login / registration
-- Student dashboard
-- Teacher dashboard
-- Admin dashboard
-- Quiz creation
-- Quiz preview
-- Quiz completion
-- Results
-- Analytics
-
----
-
 👨‍💻 Developer
 
 Denzel M.
